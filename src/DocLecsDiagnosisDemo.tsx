@@ -868,31 +868,28 @@ export default function DocLecsDiagnosisDemo() {
                         <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs tracking-[0.12em] text-teal-50">
                             <GraduationCap size={14} /> 项目入口
                         </div>
-                        <div className="rounded-[28px] border border-white/15 bg-white/10 p-4 backdrop-blur">
-                            <div className="flex items-center gap-3">
-                                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-teal-700 shadow-lg">
-                                    <Dna size={28} />
-                                </div>
-                                <div>
-                                    <div className="text-xs uppercase tracking-[0.28em] text-teal-50">折光智诊</div>
-                                    <div className="mt-1 text-lg font-bold">Clinical miRNA Analysis Platform</div>
-                                    <div className="mt-1 text-[11px] leading-5 text-teal-50/85">DNA Origami &amp; Logic ECL miRNA Platform</div>
-                                </div>
+                    </div>
+                    <div className="mt-10">
+                        <div className="flex items-start gap-5 rounded-[28px] border border-white/15 bg-white/10 p-6 backdrop-blur">
+                            <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-[24px] bg-white text-teal-700 shadow-lg">
+                                <Dna size={34} />
                             </div>
-                            <div className="mt-4 grid gap-2 text-xs text-teal-50/95">
-                                <div className="flex items-center gap-2">
-                                    <Sparkles size={12} /> 智能规则判读
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <Layers3 size={12} /> 双级联信号分析
+                            <div className="min-w-0 flex-1">
+                                <div className="text-sm font-semibold tracking-[0.18em] text-teal-50/90">Cancer miRNA Intelligence Platform</div>
+                                <div className="mt-2 text-xs uppercase tracking-[0.28em] text-teal-50/80">ZHEGUANG INTELLIGENCE</div>
+                                <h1 className="mt-3 text-5xl font-bold leading-tight lg:text-6xl">折光智诊</h1>
+                                <p className="mt-4 max-w-3xl text-base leading-8 text-teal-50/95 lg:text-lg">基于 DNA 折纸与逻辑电化学发光的癌症 miRNA 智能诊断平台</p>
+                                <div className="mt-3 text-sm leading-7 text-teal-50/85 lg:text-base">DNA Origami &amp; Logic ECL miRNA Platform</div>
+                                <div className="mt-6 flex flex-wrap gap-3 text-sm text-teal-50/95">
+                                    <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2">
+                                        <Sparkles size={14} /> 智能规则判读
+                                    </div>
+                                    <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2">
+                                        <Layers3 size={14} /> 双级联信号分析
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="mt-6">
-                        <div className="text-sm font-semibold tracking-[0.08em] text-teal-50/90">Cancer miRNA Intelligence Platform</div>
-                        <h1 className="mt-3 text-4xl font-bold leading-tight lg:text-5xl">折光智诊</h1>
-                        <p className="mt-3 max-w-2xl text-base leading-8 text-teal-50/95 lg:text-lg">基于 DNA 折纸与逻辑电化学发光的癌症 miRNA 智能诊断平台</p>
                     </div>
                     <p className="mt-5 max-w-xl text-sm leading-8 text-teal-50/95 lg:text-base">面向癌症 miRNA 智能分析场景，围绕样本接收、分析执行、规则判读、结果生成、版本留痕与归档管理构建统一流程，强调平台化管理能力与结构化输出能力。</p>
                     <div className="mt-8 grid gap-4 sm:grid-cols-4">
@@ -1877,4 +1874,3 @@ export default function DocLecsDiagnosisDemo() {
         </div>
     );
 }
-
