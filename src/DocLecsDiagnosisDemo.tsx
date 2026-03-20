@@ -1788,7 +1788,6 @@ export default function DocLecsDiagnosisDemo() {
                             <div className="mt-2 flex items-center gap-2 text-2xl font-bold">
                                 <GraduationCap size={22} /> 智能分析平台
                             </div>
-                            <div className="mt-2 text-sm font-medium leading-6 text-teal-50/95">基于DNA折纸与逻辑电化学发光的癌症miRNA智能诊断平台</div>
                             <div className="mt-2 text-xs tracking-[0.08em] text-teal-50/80">Cancer miRNA Analysis Platform</div>
                         </div>
                         <nav className="mt-6 space-y-2">
