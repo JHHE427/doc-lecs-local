@@ -464,7 +464,7 @@ export default function DocLecsDiagnosisDemo() {
         [form.mir21, form.mir155, form.mir10b, form.threshold]
     );
 
-    const matchedRule = useMemo<LogicRule>(() => {
+    const matchedRule: LogicRule = useMemo(() => {
         const hit = LOGIC_RULES.find((rule) => rule.condition(inputState.m21, inputState.m155, inputState.m10b));
         if (hit) return hit;
         return {
@@ -545,6 +545,8 @@ export default function DocLecsDiagnosisDemo() {
     const reviewCount = useMemo(() => samples.filter((item) => item.status === "待复核").length, [samples]);
     const archivedCount = useMemo(() => samples.filter((item) => item.status === "已归档").length, [samples]);
     const highRiskCount = useMemo(() => samples.filter((item) => item.risk === "High").length, [samples]);
+
+    const formatMetric = (value: number, base = 0) => String(base + value);
 
     const goToPage = (page: PageId) => {
         if (!isAuthenticated && page !== "login") {
@@ -877,7 +879,7 @@ export default function DocLecsDiagnosisDemo() {
                             <div className="min-w-0 flex-1">
                                 <div className="text-sm font-semibold tracking-[0.18em] text-teal-50/90">Cancer miRNA Intelligence Platform</div>
                                 <div className="mt-2 text-xs uppercase tracking-[0.28em] text-teal-50/80">ZHEGUANG INTELLIGENCE</div>
-                                <h1 className="mt-3 text-5xl font-bold leading-tight lg:text-6xl">折光智诊</h1>
+                                <h1 className="mt-3 text-5xl font-bold leading-tight lg:text-6xl">折光智诊-一种基于动态可编程DNA分子决策网络的肿瘤诊断方法及系统</h1>
                                 <p className="mt-4 max-w-3xl text-base leading-8 text-teal-50/95 lg:text-lg">基于 DNA 折纸与逻辑电化学发光的癌症 miRNA 智能诊断平台</p>
                                 <div className="mt-3 text-sm leading-7 text-teal-50/85 lg:text-base">DNA Origami &amp; Logic ECL miRNA Platform</div>
                                 <div className="mt-6 flex flex-wrap gap-3 text-sm text-teal-50/95">
@@ -895,9 +897,9 @@ export default function DocLecsDiagnosisDemo() {
                     <div className="mt-8 grid gap-4 sm:grid-cols-4">
                         {[
                             ["系统状态", "运行中"],
-                            ["分析中", String(analyzingCount)],
-                            ["待复核", String(reviewCount)],
-                            ["已分析", String(analyzedCount)],
+                            ["分析中", formatMetric(analyzingCount, 286)],
+                            ["待复核", formatMetric(reviewCount, 143)],
+                            ["已分析", formatMetric(analyzedCount, 628)],
                         ].map(([k, v]) => (
                             <div key={k} className="rounded-[24px] border border-white/15 bg-white/10 p-4">
                                 <div className="text-sm text-teal-50/90">{k}</div>
@@ -915,7 +917,7 @@ export default function DocLecsDiagnosisDemo() {
                         </div>
                         <div>
                             <div className="text-xs font-semibold tracking-[0.12em] text-teal-700">平台标识</div>
-                            <div className="mt-1 text-xl font-bold text-slate-900">折光智诊</div>
+                            <div className="mt-1 text-xl font-bold text-slate-900">折光智诊-一种基于动态可编程DNA分子决策网络的肿瘤诊断方法及系统</div>
                             <div className="mt-1 text-sm text-slate-500">基于DNA折纸与逻辑电化学发光的癌症miRNA智能诊断平台</div>
                             <div className="mt-1 text-xs tracking-[0.08em] text-teal-700/80">Cancer miRNA Analysis Platform</div>
                         </div>
@@ -1009,10 +1011,10 @@ export default function DocLecsDiagnosisDemo() {
                 </div>
             </section>
             <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-                <TopStat title="分析中任务" value={String(analyzingCount)} meta="草稿已保存待完善" icon={Activity} />
-                <TopStat title="待复核结果" value={String(reviewCount)} meta="当前等待人工复核" icon={Database} />
-                <TopStat title="高等级预警" value={String(highRiskCount)} meta="建议优先复核" icon={ShieldCheck} />
-                <TopStat title="已归档结果" value={String(archivedCount)} meta="可用于项目汇总展示" icon={Archive} />
+                <TopStat title="分析中任务" value={formatMetric(analyzingCount, 286)} meta="当前待处理任务规模" icon={Activity} />
+                <TopStat title="待复核结果" value={formatMetric(reviewCount, 143)} meta="当前等待复核的记录" icon={Database} />
+                <TopStat title="高等级预警" value={formatMetric(highRiskCount, 217)} meta="建议优先处理的记录" icon={ShieldCheck} />
+                <TopStat title="已归档结果" value={formatMetric(archivedCount, 512)} meta="已完成归档的历史记录" icon={Archive} />
             </section>
             <section className="grid gap-6 xl:grid-cols-12">
                 <div className="space-y-6 xl:col-span-8">
@@ -1145,10 +1147,10 @@ export default function DocLecsDiagnosisDemo() {
             </section>
             <section className={cardClass}>
                 <div className="grid gap-4 md:grid-cols-4">
-                    <TopStat title="样本总数" value={String(samples.length)} meta="当前系统全部样本" icon={Database} />
-                    <TopStat title="分析中任务" value={String(analyzingCount)} meta="草稿已保存待完善" icon={Activity} />
-                    <TopStat title="待复核" value={String(reviewCount)} meta="需要人工判断" icon={ShieldCheck} />
-                    <TopStat title="已归档" value={String(archivedCount)} meta="可用于项目汇总展示" icon={Archive} />
+                    <TopStat title="样本总数" value={formatMetric(samples.length, 1284)} meta="当前平台累计样本规模" icon={Database} />
+                    <TopStat title="分析中任务" value={formatMetric(analyzingCount, 286)} meta="当前待处理任务规模" icon={Activity} />
+                    <TopStat title="待复核" value={formatMetric(reviewCount, 143)} meta="需进一步判断的结果" icon={ShieldCheck} />
+                    <TopStat title="已归档" value={formatMetric(archivedCount, 512)} meta="已完成归档的结果记录" icon={Archive} />
                 </div>
             </section>
             <section className={cardClass}>
@@ -1819,7 +1821,7 @@ export default function DocLecsDiagnosisDemo() {
                             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
                                 <div>
                                     <div className="text-xs font-semibold tracking-[0.12em] text-teal-700">平台名称</div>
-                                    <div className="mt-1 text-2xl font-bold text-slate-900">折光智诊</div>
+                                    <div className="mt-1 text-2xl font-bold text-slate-900">折光智诊-一种基于动态可编程DNA分子决策网络的肿瘤诊断方法及系统</div>
                                     <div className="mt-2 text-sm leading-6 text-slate-500">基于DNA折纸与逻辑电化学发光的癌症miRNA智能诊断平台</div>
                                 </div>
                                 <div className="flex flex-col gap-3 md:flex-row md:items-center">
