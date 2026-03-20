@@ -1785,8 +1785,8 @@ export default function DocLecsDiagnosisDemo() {
                     <aside className="rounded-[32px] border border-teal-100 bg-gradient-to-b from-teal-500 to-cyan-500 p-5 text-white shadow-lg">
                         <div className="rounded-[24px] border border-white/15 bg-white/10 p-4">
                             <div className="text-xs tracking-[0.12em] text-teal-50">ZHEGUANG INTELLIGENCE</div>
-                            <div className="mt-2 flex items-center gap-2 text-2xl font-bold">
-                                <GraduationCap size={22} /> 智能分析平台
+                            <div className="mt-2 flex items-start gap-2 text-base font-bold leading-6 lg:text-lg">
+                                <GraduationCap size={22} className="mt-0.5 shrink-0" /> 折光智诊-一种基于动态可编程DNA分子决策网络的肿瘤诊断方法及系统
                             </div>
                             <div className="mt-2 text-xs tracking-[0.08em] text-teal-50/80">Cancer miRNA Analysis Platform</div>
                         </div>
